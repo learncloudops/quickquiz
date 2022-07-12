@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "api": {
+      "quickquizapi": [
+        "create",
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "secretNames": [
+    "gameapitoken"
+  ]
+}
