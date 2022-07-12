@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-quickquiz-main-140009-unauthRole",
       "StackName": "amplify-quickquiz-main-140009",
       "StackId": "arn:aws:cloudformation:us-east-1:422025071707:stack/amplify-quickquiz-main-140009/78d80700-020c-11ed-8ded-0aab1995430d",
-      "AmplifyAppId": "dz0u5dfnsnnl2"
+      "AmplifyAppId": "dz0u5dfnsnnl2",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-quickquiz-main-140009-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -22,7 +23,7 @@
         },
         "questionfunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionfunction-756f446875554b6a6437-build.zip"
+          "s3Key": "amplify-builds/questionfunction-4b6f6e45726230717845-build.zip"
         },
         "gamefunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
@@ -30,7 +31,7 @@
         },
         "questionloader": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionloader-3738323037543034644d-build.zip"
+          "s3Key": "amplify-builds/questionloader-793266736d67784f626a-build.zip"
         },
         "statscalculator": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
@@ -39,7 +40,7 @@
         "gamegenerator": {
           "secretsPathAmplifyAppId": "dz0u5dfnsnnl2",
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/gamegenerator-2b776e7239472b433146-build.zip"
+          "s3Key": "amplify-builds/gamegenerator-53486b2b3966786b5035-build.zip"
         }
       }
     }

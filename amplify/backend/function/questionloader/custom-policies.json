@@ -1,6 +1,6 @@
 [
   {
-    "Action": [],
-    "Resource": []
+    "Action": ["dynamodb:PutItem","dynamodb:Query"],
+    "Resource": ["arn:aws:dynamodb:us-east-1:422025071707:table/questiondb-*"]
   }
 ]
