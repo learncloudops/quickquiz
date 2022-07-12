@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "storage": {
+      "questiondb": [
+        "create",
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "gamedb": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

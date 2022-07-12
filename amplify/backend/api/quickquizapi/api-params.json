@@ -1,0 +1,94 @@
+{
+  "paths": [
+    {
+      "name": "/games",
+      "lambdaFunction": "gamefunction",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/games"
+    },
+    {
+      "name": "/questions",
+      "lambdaFunction": "questionfunction",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/questions"
+    },
+    {
+      "name": "/stats",
+      "lambdaFunction": "statfunction",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/stats"
+    }
+  ],
+  "resourceName": "quickquizapi",
+  "apiName": "quickquizapi",
+  "functionArns": [
+    {
+      "lambdaFunction": "gamefunction"
+    },
+    {
+      "lambdaFunction": "questionfunction"
+    },
+    {
+      "lambdaFunction": "statfunction"
+    }
+  ],
+  "privacy": {
+    "auth": 3,
+    "unauth": 0,
+    "authRoleName": "amplify-quickquiz-main-140009-authRole",
+    "unAuthRoleName": "amplify-quickquiz-main-140009-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "gamefunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    },
+    {
+      "category": "function",
+      "resourceName": "questionfunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    },
+    {
+      "category": "function",
+      "resourceName": "statfunction",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "tableName": "statsdb",
+    "partitionKeyName": "username",
+    "partitionKeyType": "S",
+    "sortKeyName": "stat",
+    "sortKeyType": "S"
+}
