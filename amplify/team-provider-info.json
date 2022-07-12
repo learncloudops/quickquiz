@@ -30,11 +30,11 @@
         },
         "questionloader": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionloader-704b314d6d4e33444273-build.zip"
+          "s3Key": "amplify-builds/questionloader-7377324f55745641364c-build.zip"
         },
         "statscalculator": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/statscalculator-626d55374d7743535652-build.zip"
+          "s3Key": "amplify-builds/statscalculator-773063336e7131313450-build.zip"
         }
       }
     }

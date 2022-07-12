@@ -1,0 +1,6 @@
+Every night at 11:50P EST, this will trigger.
+
++ It should pull the question sequence (seq) from the question api
++ It should pull 10 questions from opentrivia, assigning them a question sequence value
++ It should write the back of 10 questions back to the api 
+
