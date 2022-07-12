@@ -1,19 +1,20 @@
 import json
+from .service import Question, Answer, save_questions
 
-# API_QUICKQUIZAPI_APIID
-# API_QUICKQUIZAPI_APINAME
+
+OPEN_TRIVIA_URL = 'https://opentdb.com/api.php?amount=10'
 
 
 def handler(event, context):
-  print('received event:')
-  print(event)
-  
-  return {
-      'statusCode': 200,
-      'headers': {
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-      },
-      'body': json.dumps('Hello from your new Amplify Python lambda!')
-  }
+    print('received event:')
+    print(event)
+
+    # Pull 10 Questions from OpenTrivia
+
+    # Transform them to Question Format
+
+    # Save them to Question DB
+
+
+
+    return True

@@ -35,6 +35,11 @@
                   {
                       "AttributeName": "pk",
                       "AttributeType": "S"
+                  }  , 
+                  
+                  {
+                      "AttributeName": "sk",
+                      "AttributeType": "S"
                   } 
                   
                 ],
@@ -76,6 +81,34 @@
                         }
                     ]
                 }
+                
+                ,"GlobalSecondaryIndexes": [
+                  
+                    {
+                        "IndexName": "sortIndex",
+                        "KeySchema": [
+                            
+                            {
+                                "AttributeName": "sk",
+                                "KeyType": "HASH"
+                            }  , 
+                            
+                            {
+                                "AttributeName": "pk",
+                                "KeyType": "RANGE"
+                            } 
+                            
+                        ],
+                        "Projection": {
+                            "ProjectionType": "ALL"
+                        },
+                        "ProvisionedThroughput": {
+                            "ReadCapacityUnits": "5",
+                            "WriteCapacityUnits": "5"
+                        }
+                    } 
+                  
+                ]
                 
             }
         }

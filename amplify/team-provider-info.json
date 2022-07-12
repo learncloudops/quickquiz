@@ -18,23 +18,28 @@
       "function": {
         "statfunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/statfunction-3655682b5a6671526d4f-build.zip"
+          "s3Key": "amplify-builds/statfunction-48344155414b594d4c77-build.zip"
         },
         "questionfunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionfunction-334a304956546e70564c-build.zip"
+          "s3Key": "amplify-builds/questionfunction-756f446875554b6a6437-build.zip"
         },
         "gamefunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/gamefunction-66575a6b675a70496f7a-build.zip"
+          "s3Key": "amplify-builds/gamefunction-706d654d535359446b39-build.zip"
         },
         "questionloader": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionloader-7377324f55745641364c-build.zip"
+          "s3Key": "amplify-builds/questionloader-3738323037543034644d-build.zip"
         },
         "statscalculator": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
           "s3Key": "amplify-builds/statscalculator-773063336e7131313450-build.zip"
+        },
+        "gamegenerator": {
+          "secretsPathAmplifyAppId": "dz0u5dfnsnnl2",
+          "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
+          "s3Key": "amplify-builds/gamegenerator-2b776e7239472b433146-build.zip"
         }
       }
     }
