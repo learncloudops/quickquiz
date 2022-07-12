@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "api": {
+      "quickquizapi": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
