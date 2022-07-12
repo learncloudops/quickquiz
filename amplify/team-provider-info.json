@@ -18,15 +18,23 @@
       "function": {
         "statfunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/statfunction-754a72752b696f6e4269-build.zip"
+          "s3Key": "amplify-builds/statfunction-3655682b5a6671526d4f-build.zip"
         },
         "questionfunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/questionfunction-6e3835386d616d456747-build.zip"
+          "s3Key": "amplify-builds/questionfunction-334a304956546e70564c-build.zip"
         },
         "gamefunction": {
           "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
-          "s3Key": "amplify-builds/gamefunction-692f5668433377464e47-build.zip"
+          "s3Key": "amplify-builds/gamefunction-66575a6b675a70496f7a-build.zip"
+        },
+        "questionloader": {
+          "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
+          "s3Key": "amplify-builds/questionloader-704b314d6d4e33444273-build.zip"
+        },
+        "statscalculator": {
+          "deploymentBucketName": "amplify-quickquiz-main-140009-deployment",
+          "s3Key": "amplify-builds/statscalculator-626d55374d7743535652-build.zip"
         }
       }
     }

@@ -23,6 +23,18 @@
     "apiquickquizapiApiId": {
       "Type": "String",
       "Default": "apiquickquizapiApiId"
+    },
+    "storagegamedbName": {
+      "Type": "String",
+      "Default": "storagegamedbName"
+    },
+    "storagegamedbArn": {
+      "Type": "String",
+      "Default": "storagegamedbArn"
+    },
+    "storagegamedbStreamArn": {
+      "Type": "String",
+      "Default": "storagegamedbArn"
     }
   },
   "Conditions": {
@@ -55,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "questionloader",
+            "statscalculator",
             {
               "Fn::Join": [
                 "",
                 [
-                  "questionloader",
+                  "statscalculator",
                   "-",
                   {
                     "Ref": "env"
@@ -103,12 +115,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "quickquizLambdaRole4dcf045c",
+            "quickquizLambdaRole20a4a0c7",
             {
               "Fn::Join": [
                 "",
                 [
-                  "quickquizLambdaRole4dcf045c",
+                  "quickquizLambdaRole20a4a0c7",
                   "-",
                   {
                     "Ref": "env"
@@ -227,43 +239,57 @@
         }
       }
     },
-    "CloudWatchEvent": {
-      "Type": "AWS::Events::Rule",
+    "gamedbTriggerPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
       "Properties": {
-        "Description": "Schedule rule for Lambda",
-        "ScheduleExpression": {
-          "Ref": "CloudWatchRule"
-        },
-        "State": "ENABLED",
-        "Targets": [
+        "PolicyName": "lambda-trigger-policy-gamedb",
+        "Roles": [
           {
-            "Arn": {
-              "Fn::GetAtt": [
-                "LambdaFunction",
-                "Arn"
-              ]
-            },
-            "Id": {
-              "Ref": "LambdaFunction"
-            }
+            "Ref": "LambdaExecutionRole"
           }
-        ]
-      }
-    },
-    "PermissionForEventsToInvokeLambda": {
-      "Type": "AWS::Lambda::Permission",
-      "Properties": {
-        "FunctionName": {
-          "Ref": "LambdaFunction"
-        },
-        "Action": "lambda:InvokeFunction",
-        "Principal": "events.amazonaws.com",
-        "SourceArn": {
-          "Fn::GetAtt": [
-            "CloudWatchEvent",
-            "Arn"
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:DescribeStream",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:ListStreams"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storagegamedbStreamArn"
+                }
+              ]
+            }
           ]
         }
+      }
+    },
+    "gamedbTrigger": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": [
+        "gamedbTriggerPolicy"
+      ],
+      "Properties": {
+        "BatchSize": 100,
+        "Enabled": true,
+        "EventSourceArn": {
+          "Ref": "storagegamedbStreamArn"
+        },
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "LambdaFunction",
+            "Arn"
+          ]
+        },
+        "StartingPosition": "LATEST"
       }
     }
   },
@@ -289,11 +315,6 @@
     "LambdaExecutionRole": {
       "Value": {
         "Ref": "LambdaExecutionRole"
-      }
-    },
-    "CloudWatchEventRule": {
-      "Value": {
-        "Ref": "CloudWatchEvent"
       }
     }
   }
