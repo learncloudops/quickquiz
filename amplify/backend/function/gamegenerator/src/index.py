@@ -36,7 +36,7 @@ def random_questions(max_seq: int):
         'there are not 5 questions available to parse into a game')
   else:
     for x in range(5):
-      rand_nums.append(random.randrange(1, max_seq))
+      rand_nums.append(random.randrange(0, max_seq))
   
   return rand_nums
 
