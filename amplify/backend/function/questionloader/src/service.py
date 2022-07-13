@@ -53,14 +53,15 @@ def get_question_sequence() -> int:
 
 def update_question_sequence(new_value: int) -> None:
   table.put_item(Item={
-    'pk':'QSEQ',
+    'pk':-1,
+    'sk': 'QSEQ',
     'value': int(new_value),
   })
 
 
 def transform_to_db_item(q: Question) -> Dict:
   return {
-    'pk': str(q.question_id),
+    'pk': q.question_id,
     'sk': 'Question',
     'mod_timest': current_date_format(),
     'data': {
@@ -89,38 +90,38 @@ def save_questions(questions: List[Question]) -> bool:
   update_question_sequence(seq)
 
 
-# if __name__ == '__main__':
-#   q: List[Question] = []
-#   q.append(
-#     Question(question_text='Am I good?', question_type='boolean', category='Entertainment', difficulty='easy',
-#              answers=[Answer(index=0, answer_text='Yes', is_correct=True), 
-#                       Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I smart?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I dead sexy?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I a moron?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I hideous?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I a tech badass?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I gravitationally challenged?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   q.append(
-#       Question(question_text='Am I done?', question_type='boolean', category='Entertainment', difficulty='easy',
-#                answers=[Answer(index=0, answer_text='Yes', is_correct=True),
-#                         Answer(index=1, answer_text='No', is_correct=False)]))
-#   save_questions(questions=q)
+if __name__ == '__main__':
+  q: List[Question] = []
+  q.append(
+    Question(question_text='Am I good?', question_type='boolean', category='Entertainment', difficulty='easy',
+             answers=[Answer(index=0, answer_text='Yes', is_correct=True), 
+                      Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I smart?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I dead sexy?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I a moron?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I hideous?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I a tech badass?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I gravitationally challenged?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  q.append(
+      Question(question_text='Am I done?', question_type='boolean', category='Entertainment', difficulty='easy',
+               answers=[Answer(index=0, answer_text='Yes', is_correct=True),
+                        Answer(index=1, answer_text='No', is_correct=False)]))
+  save_questions(questions=q)

@@ -1,72 +1,42 @@
-import os
-import random
-from typing import Dict, List
-import boto3
-from boto3.dynamodb.conditions import Key, Attr
-
-
-DB_TABLE = os.environ.get('STORAGE_QUESTIONDB_NAME', 'questiondb-main')
-table = boto3.resource('dynamodb').Table(DB_TABLE)
-
-
-def get_question_sequence():
-    result = table.query(
-        KeyConditionExpression=Key('pk').eq('QSEQ')
-    )
-    items = result['Items']
-    result = {}
-
-    if result.get('Count') > 0:
-      seq = items[0]
-      result = {
-        'name': 'question_sequence',
-        'sequence': seq.get('value'),
-        'last_mod': seq.get('mod_timest')
-      }
-    else:
-      raise ValueError('Could not find the question sequence. Something went wrong!')
-
-    return result
-
-
-def random_questions(max_seq: int):
-  rand_nums = []
-  if max_seq < 5:
-    raise ValueError(
-        'there are not 5 questions available to parse into a game')
-  else:
-    for x in range(5):
-      rand_nums.append(random.randrange(0, max_seq))
-  
-  return rand_nums
-
-
+from typing import List
+from service import (create_game, current_date_format, 
+                     random_questions)
 
 
 def handler(event, context):
   '''
-    TODO Implement Me
+    TODO Implement Me Better
 
     Generates a game of 5 questions using random numbers
-    between 1 and the sequence max.
+    between 1 and question_sequence.
 
     How it works:
 
-      * Gets the question sequence from the question api
-      * Generates random numbers between 1 and the sequence
+      * Generates random numbers between 1 and the sequence in the event
       * Saves the new game
+
+    This is actually broken. Rather than being on a CRON, it should 
+    react to questions being written to the questiondb and auto-generating.
+
+    Questions Load -> Game gets generated
+
   '''
   print('received event:')
   print(event)
 
-  # read out the question sequence
-  # sequence: Dict = get_question_sequence()
-
-  # get 5 random questions
-  #random_questions: List = random_questions(sequence.get('sequence', 0))
-
-  # save the game
-  game = {}
-
+  dtstr: str = current_date_format()
+  sequence: int = event.get('question_sequence', 500)
+  if not sequence or sequence == 0:
+    raise ValueError('cannot process this sequence. dying')
+  else:
+    questions: List[int] = random_questions(sequence)
+    create_game(dtstr, questions)
   
   return True
+
+
+
+if __name__ == '__main__':
+  handler({
+    'question_sequence': 16
+  },{})

@@ -34,7 +34,7 @@
                   
                   {
                       "AttributeName": "pk",
-                      "AttributeType": "S"
+                      "AttributeType": "N"
                   }  , 
                   
                   {
