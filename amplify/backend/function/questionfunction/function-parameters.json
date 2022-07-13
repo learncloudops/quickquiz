@@ -1,9 +1,10 @@
 {
   "permissions": {
     "storage": {
-      "questiondb": [
+      "questionsdb": [
         "create",
-        "read"
+        "read",
+        "update"
       ]
     }
   },

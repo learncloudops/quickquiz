@@ -44,5 +44,51 @@
         }
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-quickquiz-prod-03250-authRole",
+      "UnauthRoleArn": "arn:aws:iam::039842840626:role/amplify-quickquiz-prod-03250-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::039842840626:role/amplify-quickquiz-prod-03250-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+      "UnauthRoleName": "amplify-quickquiz-prod-03250-unauthRole",
+      "StackName": "amplify-quickquiz-prod-03250",
+      "StackId": "arn:aws:cloudformation:us-east-1:039842840626:stack/amplify-quickquiz-prod-03250/db5f1460-0264-11ed-ae81-0ed18f8ab6ab",
+      "AmplifyAppId": "d29dr1x5xa2tfe",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-quickquiz-prod-03250-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "quickquiz40fd4350": {}
+      },
+      "function": {
+        "gamefunction": {
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/gamefunction-77377730676d6134546c-build.zip"
+        },
+        "questionfunction": {
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/questionfunction-334a655257543575746a-build.zip"
+        },
+        "statfunction": {
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/statfunction-6d6e37364d6449674334-build.zip"
+        },
+        "questionloader": {
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/questionloader-6172444f6279706b6441-build.zip"
+        },
+        "statscalculator": {
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/statscalculator-773063336e7131313450-build.zip"
+        },
+        "gamegenerator": {
+          "secretsPathAmplifyAppId": "d29dr1x5xa2tfe",
+          "deploymentBucketName": "amplify-quickquiz-prod-03250-deployment",
+          "s3Key": "amplify-builds/gamegenerator-734735757151494f7374-build.zip"
+        }
+      }
+    }
   }
 }

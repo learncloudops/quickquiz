@@ -31,11 +31,11 @@
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     },
-    "questiondb": {
+    "statsdb": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     },
-    "statsdb": {
+    "questionsdb": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
     }
@@ -64,7 +64,7 @@
       "dependsOn": [
         {
           "category": "storage",
-          "resourceName": "questiondb",
+          "resourceName": "questionsdb",
           "attributes": [
             "Name",
             "Arn",
@@ -93,16 +93,7 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "quickquizapi",
-          "attributes": [
-            "ApiName",
-            "ApiId"
-          ]
-        }
-      ]
+      "dependsOn": []
     },
     "statscalculator": {
       "build": true,

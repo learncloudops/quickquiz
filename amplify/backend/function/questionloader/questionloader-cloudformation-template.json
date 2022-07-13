@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"9.1.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -15,14 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "apiquickquizapiApiName": {
-      "Type": "String",
-      "Default": "apiquickquizapiApiName"
-    },
-    "apiquickquizapiApiId": {
-      "Type": "String",
-      "Default": "apiquickquizapiApiId"
     }
   },
   "Conditions": {
@@ -77,12 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "API_QUICKQUIZAPI_APINAME": {
-              "Ref": "apiquickquizapiApiName"
-            },
-            "API_QUICKQUIZAPI_APIID": {
-              "Ref": "apiquickquizapiApiId"
             }
           }
         },
@@ -174,54 +160,6 @@
                   }
                 ]
               }
-            }
-          ]
-        }
-      }
-    },
-    "AmplifyResourcesPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "apigateway:POST",
-                "apigateway:PUT",
-                "apigateway:GET",
-                "apigateway:HEAD",
-                "apigateway:OPTIONS",
-                "apigateway:PATCH"
-              ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      "::/restapis/",
-                      {
-                        "Ref": "apiquickquizapiApiName"
-                      },
-                      "/*"
-                    ]
-                  ]
-                }
-              ]
             }
           ]
         }

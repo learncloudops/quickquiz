@@ -21,15 +21,17 @@ export type AmplifyDependentResourcesAttributes = {
             "SortKeyType": "string",
             "Region": "string"
         },
-        "questiondb": {
+        "statsdb": {
             "Name": "string",
             "Arn": "string",
             "StreamArn": "string",
             "PartitionKeyName": "string",
             "PartitionKeyType": "string",
+            "SortKeyName": "string",
+            "SortKeyType": "string",
             "Region": "string"
         },
-        "statsdb": {
+        "questionsdb": {
             "Name": "string",
             "Arn": "string",
             "StreamArn": "string",

@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"9.1.0\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storagequestiondbName": {
+    "storagequestionsdbName": {
       "Type": "String",
-      "Default": "storagequestiondbName"
+      "Default": "storagequestionsdbName"
     },
-    "storagequestiondbArn": {
+    "storagequestionsdbArn": {
       "Type": "String",
-      "Default": "storagequestiondbArn"
+      "Default": "storagequestionsdbArn"
     },
-    "storagequestiondbStreamArn": {
+    "storagequestionsdbStreamArn": {
       "Type": "String",
-      "Default": "storagequestiondbStreamArn"
+      "Default": "storagequestionsdbStreamArn"
     }
   },
   "Conditions": {
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_QUESTIONDB_NAME": {
-              "Ref": "storagequestiondbName"
+            "STORAGE_QUESTIONSDB_NAME": {
+              "Ref": "storagequestionsdbName"
             },
-            "STORAGE_QUESTIONDB_ARN": {
-              "Ref": "storagequestiondbArn"
+            "STORAGE_QUESTIONSDB_ARN": {
+              "Ref": "storagequestionsdbArn"
             },
-            "STORAGE_QUESTIONDB_STREAMARN": {
-              "Ref": "storagequestiondbStreamArn"
+            "STORAGE_QUESTIONSDB_STREAMARN": {
+              "Ref": "storagequestionsdbStreamArn"
             }
           }
         },
@@ -212,18 +212,20 @@
                 "dynamodb:List*",
                 "dynamodb:Describe*",
                 "dynamodb:Scan",
-                "dynamodb:Query"
+                "dynamodb:Query",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*"
               ],
               "Resource": [
                 {
-                  "Ref": "storagequestiondbArn"
+                  "Ref": "storagequestionsdbArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storagequestiondbArn"
+                        "Ref": "storagequestionsdbArn"
                       },
                       "index/*"
                     ]

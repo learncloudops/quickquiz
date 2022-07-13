@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 cors = CORS(app)
-DB_TABLE = os.environ.get('STORAGE_QUESTIONDB_NAME', 'questiondb-main')
+DB_TABLE = os.environ.get('STORAGE_QUESTIONSDB_NAME', 'questionsdb-main')
 table = boto3.resource('dynamodb').Table(DB_TABLE)
 
 
@@ -26,7 +26,7 @@ def get_sequence():
     if result.get('Count') > 0:
 
         seq = items[0]
-        return jsonify(data={ 
+        return jsonify(data={
             'name': 'question_sequence',
             'sequence': seq.get('value'),
             'last_mod': seq.get('mod_timest')
